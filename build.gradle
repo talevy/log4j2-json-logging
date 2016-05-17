@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+group = 'org.logstash.log'
+version = '1.0.0-SNAPSHOT'
+
+description = """Playground test for structured logging"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.logging.log4j:log4j-api:2.5'
+  compile 'org.apache.logging.log4j:log4j-core:2.5'
+  compile 'com.fasterxml.jackson.core:jackson-core:2.7.4'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.7.4'
+}
+
+mainClassName = "org.logstash.log.Main"
