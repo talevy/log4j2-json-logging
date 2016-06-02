@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration packages="org.logstash.log" status="INFO">
+<Configuration status="INFO">
   <Appenders>
     <Console name="Console" target="SYSTEM_OUT">
-      <JSONObjectLayout/>
+      <JSONLayout compact="true" eventEol="true" />
     </Console>
   </Appenders>
   <Loggers>
