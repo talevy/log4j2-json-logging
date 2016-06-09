@@ -17,13 +17,18 @@ public class StructuredMessage implements Message {
     }
 
     public StructuredMessage(String message, Object... params) {
-        Map<String, Object> paramsMap = new HashMap<>();
-        try {
-            for (int i = 0; i < params.length; i += 2) {
-                paramsMap.put((String) params[i], params[i + 1]);
+        final Map<String, Object> paramsMap;
+        if (params.length == 1 && params[0] instanceof Map) {
+            paramsMap = (Map) params[0];
+        } else {
+            paramsMap = new HashMap<>();
+            try {
+                for (int i = 0; i < params.length; i += 2) {
+                    paramsMap.put((String) params[i], params[i + 1]);
+                }
+            } catch (IndexOutOfBoundsException e) {
+                throw new IllegalArgumentException("must log key-value pairs");
             }
-        } catch (IndexOutOfBoundsException e) {
-            throw new IllegalArgumentException("must log key-value pairs");
         }
         this.message = message;
         this.params = paramsMap;

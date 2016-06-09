@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
+apply plugin: 'maven-publish'
 
 group = 'org.logstash.log'
 version = '1.0.0-SNAPSHOT'
@@ -21,4 +22,10 @@ dependencies {
   compile 'com.fasterxml.jackson.core:jackson-databind:2.7.4'
 }
 
-mainClassName = "org.logstash.log.Main"
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
