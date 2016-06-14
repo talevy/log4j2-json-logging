@@ -16,17 +16,19 @@ Gem::PackageTask.new(spec) do
 end
 
 desc 'install vendored kafka jars from maven central'
-task :install_jars do
-  # ENV['JARS_VENDOR'] = 'false'
-  ENV['JARS_HOME'] = 'lib/jar-dependencies'
-  Jars::Installer.new.vendor_jars!(false)
+task :install_jars => :compile do
+  Jars::Installer.vendor_jars!('vendor/jar-dependencies')
 end
+
+RSpec::Core::RakeTask.new(:spec)
+task :spec => :install_jars
+task :test => :spec
 
 desc 'clean it all'
 task :clean do
   FileUtils.rm_rf('./pkg')
-  FileUtils.rm_rf('./lib/jar-dependencies')
-  FileUtils.rm_rf('./lib/*_jars.rb')
+  FileUtils.rm_rf('./vendor')
+  FileUtils.rm_rf('./lib/log4j2_jars.rb')
   FileUtils.rm_rf('.mvn')
   FileUtils.rm_rf('Gemfile.lock')
 end
