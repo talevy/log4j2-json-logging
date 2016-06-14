@@ -20,8 +20,10 @@ task :install_jars => :compile do
   Jars::Installer.vendor_jars!('vendor/jar-dependencies')
 end
 
+task :vendor => :install_jars
+
 RSpec::Core::RakeTask.new(:spec)
-task :spec => :install_jars
+# task :spec => :install_jars
 task :test => :spec
 
 desc 'clean it all'

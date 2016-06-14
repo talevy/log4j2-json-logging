@@ -4,7 +4,8 @@ module Log4j2
   module LoggerForClass
     def self.included(klass)
       def klass.logger
-        @logger ||= org.apache.log4j.LogManager.get(name)
+        name = "jruby.#{self.name.gsub('::', '.')}"
+        @logger ||= org.apache.logging.log4j.LogManager.getLogger(name)
       end
     end
 
