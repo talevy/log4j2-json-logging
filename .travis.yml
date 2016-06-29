@@ -3,8 +3,6 @@ sudo: false
 language: ruby
 cache:
   bundler: true
-  directories:
-  - $HOME/.m2
 rvm:
 - jruby-1.7.25
 before_script:
@@ -12,7 +10,3 @@ before_script:
 script:
 - bundle exec rspec spec
 jdk: oraclejdk8
-before_install:
-- curl -O https://downloads.gradle.org/distributions/gradle-2.14-bin.zip
-- unzip gradle-2.14-bin.zip
-- ln -s gradle-2.14-bin/bin/gradle /usr/local/bin/gradle
