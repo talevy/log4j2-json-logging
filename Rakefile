@@ -5,7 +5,7 @@ require 'rspec/core/rake_task'
 
 desc "Compile and publish"
 task :compile do
-  `gradle jar`
+  `./gradlew jar`
 end
 
 
