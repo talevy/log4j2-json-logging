@@ -1,7 +1,7 @@
 module Log4j2
 end
 
-require 'log4j2_jars'
+require 'jars'
 require 'log4j2/setup'
 require 'log4j2/logger_for_class'
 

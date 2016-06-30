@@ -10,12 +10,10 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/talevy/log4j2-json-logging'
   s.license = 'Apache 2.0'
   s.platform = 'java'
-  s.require_paths = ['lib', 'vendor/jar-dependencies']
+  s.require_paths = ['lib', 'vendor/jars']
 
   s.files = Dir[ 'lib/**/*', 'vendor/**/*', 'spec/**/*', 'Gemfile', '*.gemspec']
   s.test_files = Dir[ 'spec/**/*.rb' ]
-
-  s.requirements << "jar 'org.logstash.log:log4j2-json-logging', '#{VERSION}'"
 
   s.add_development_dependency 'jar-dependencies', '~> 0.3.4'
   s.add_development_dependency 'rake', '~> 10.5'

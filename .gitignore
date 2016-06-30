@@ -24,3 +24,5 @@ vendor
 .mvn
 
 build
+
+lib/jars.rb

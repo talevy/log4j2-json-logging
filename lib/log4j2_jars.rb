@@ -1,6 +1,0 @@
-require "libs/jackson-annotations-2.7.0.jar"
-require "libs/jackson-core-2.7.4.jar"
-require "libs/jackson-databind-2.7.4.jar"
-require "libs/log4j-api-2.6.1.jar"
-require "libs/log4j-core-2.6.1.jar"
-require "libs/log4j2-json-logging-1.0.0-SNAPSHOT.jar"
